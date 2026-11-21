@@ -1,0 +1,125 @@
+/* ==========================================================================
+   GLOSSY REUSABLE BUTTON STYLES
+   ========================================================================== */
+.ui-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-base);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  min-height: var(--touch-target); /* Ensure 44px minimum tap target */
+  line-height: 1;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glossy reflection line across the top edge */
+.ui-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+/* Size Variants */
+.ui-btn--sm {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--fs-small);
+  min-height: 38px;
+  border-radius: var(--radius-sm);
+}
+
+.ui-btn--md {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--fs-body);
+  min-height: var(--touch-target);
+}
+
+.ui-btn--lg {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--fs-h4);
+  min-height: 52px;
+}
+
+.ui-btn--full {
+  width: 100%;
+}
+
+/* Primary Variant (Glossy Blue) */
+.ui-btn--primary {
+  background: var(--glossy-primary-grad);
+  color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-glow-primary);
+}
+
+.ui-btn--primary:hover:not(:disabled) {
+  background: var(--glossy-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -2px rgba(37, 99, 235, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.ui-btn--primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Secondary Variant (Frosted Glass Neutral) */
+.ui-btn--secondary {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  color: var(--color-primary-700);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-glossy);
+}
+
+.ui-btn--secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-900);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glossy-lg);
+}
+
+.ui-btn--secondary:active:not(:disabled) {
+  transform: translateY(0);
+  background: var(--color-primary-50);
+}
+
+/* Danger Variant (Glossy Red Accent - Special CTAs & Alerts) */
+.ui-btn--danger {
+  background: var(--glossy-accent-grad);
+  color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-glow-accent);
+}
+
+.ui-btn--danger:hover:not(:disabled) {
+  background: var(--glossy-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -2px rgba(220, 38, 38, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.ui-btn--danger:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Disabled State */
+.ui-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none !important;
+}
